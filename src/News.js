@@ -28,9 +28,9 @@ function News() {
   return (
     <div className="newsInner">
       <div className="newsSec">
-        {newsList.map((news, id) => (
+        {newsList.map((news) => (
           <NewsList
-            key={id}
+            
             image={news.urlToImage}
             author={news.author}
             title={news.title}
