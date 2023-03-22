@@ -14,7 +14,7 @@ function News() {
       .then((response) => response.json())
       .then((data) => {
         setLoading(false);
-        setNewsList(data);
+        setNewsList(data.articles);
       });
   }, []);
 
@@ -28,7 +28,7 @@ function News() {
   return (
     <div className="newsInner">
       <div className="newsSec">
-        {newsList.articles.map((news, id) => (
+        {newsList.map((news, id) => (
           <NewsList
             key={id}
             image={news.urlToImage}
