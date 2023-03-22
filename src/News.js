@@ -9,7 +9,7 @@ function News() {
   useEffect(() => {
     setLoading(true);
     fetch(
-      "https://newsapi.org/v2/top-headlines?country=in&apiKey=726f6bdc21db41a59facc9db4cec16ee"
+      'https://newsapi.org/v2/top-headlines?country=in&apiKey=726f6bdc21db41a59facc9db4cec16ee'
     )
       .then((response) => response.json())
       .then((data) => {
@@ -27,7 +27,7 @@ function News() {
   }
   return (
     <div className="newsInner">
-      <div className="newsSec">
+      <div className="newsSec">Demo
         {newsList?.map((news, id) => (
           <NewsList
             key={id}
