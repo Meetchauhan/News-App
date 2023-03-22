@@ -28,7 +28,7 @@ function News() {
   return (
     <div className="newsInner">
       <div className="newsSec">
-        {newsList.map((news, id) => (
+        {newsList?.map((news, id) => (
           <NewsList
             key={id}
             image={news.urlToImage}
