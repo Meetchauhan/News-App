@@ -7,6 +7,8 @@
 img {
   max-width: 100%;
   display: block;
+  width: 100%;
+  margin: 0 auto;
 }
 .news-wrapper {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -45,25 +47,39 @@ a.link {
   .title {
     font-size: 18px;
   }
+  img{
+    width: 80%;
+  }
 }
 @media (max-width: 1199px) {
   .newsWrapSec {
     width: 30%;
     padding: 0 15px;
   }
+  img{
+    width: 70%;
+  }
 }
 @media (max-width: 991px) {
   .newsWrapSec {
     width: 45%;
   }
+  img{
+    width: 60%;
+  }
 }
 @media (max-width: 767px) {
   .newsWrapSec {
-    width: 44%;
+    width: 46%;
+    padding: 0 10px;
+  }
+  img{
+    width: 50%;
   }
 }
 @media (max-width: 575px) {
   .newsWrapSec {
     width: 100%;
+    padding: 0;
   }
 }

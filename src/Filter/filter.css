@@ -1,0 +1,51 @@
+.filter {
+  width: 400px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+.filter-section{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+@media(max-width:1440px){
+    .filter{
+        width: 350px;
+    }
+}
+@media(max-width:1199px){
+    .filter{
+        width: 300px;
+    }
+}
+@media(max-width:991px){
+    .filter{
+        width: 220px;
+    }
+}
+@media(max-width:991px){
+    .filter{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .filter:last-child{
+        margin-bottom: 0;
+    }
+    .filter-section{
+        flex-direction: column;
+    }
+}
+
+.css-1hb7zxy-IndicatorsContainer {
+  cursor: pointer;
+}
+.css-13cymwt-control {
+  cursor: pointer;
+}
+#react-select-2-listbox {
+  /* cursor: pointer !important; */
+  /* background-color: rgb(87, 78, 93); */
+  /* color: black; */
+}
