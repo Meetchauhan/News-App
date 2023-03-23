@@ -15,7 +15,7 @@ function News() {
       .then((data) => {
         setLoading(false);
         setNewsList(data.articles);
-      }).catch((error)=>{console.log(error)})
+      })
   }, []);
 
   if (loading) {
