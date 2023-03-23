@@ -9,12 +9,13 @@ function News() {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `https://newsapi.org/v2/top-headlines?country=in&apiKey=726f6bdc21db41a59facc9db4cec16ee`
+      // `https://newsapi.org/v2/top-headlines?country=in&apiKey=726f6bdc21db41a59facc9db4cec16ee`
+      `https://newsdata.io/api/1/news?apikey=pub_19355292bbd3ba50b2b1a59603f56332bac1a&country=in&language=en`
     )
       .then((response) => response.json())
       .then((data) => {
         setLoading(false);
-        setNewsList(data.articles);
+        setNewsList(data.results);
       })
   }, []);
 
@@ -31,11 +32,11 @@ function News() {
         {newsList.map((news, id) => (
           <NewsList
             key={id}
-            image={news.urlToImage}
+            image={news.image_url}
             author={news.author}
             title={news.title}
-            link={news.url}
-            source={news.source.name}
+            link={news.link}
+            source={news.source_id}
           />
         ))}
       </div>
