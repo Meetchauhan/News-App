@@ -74,7 +74,7 @@ a.link {
     padding: 0 10px;
   }
   img{
-    width: 50%;
+    width: 100%;
   }
 }
 @media (max-width: 575px) {
