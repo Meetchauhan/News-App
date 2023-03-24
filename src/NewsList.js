@@ -10,7 +10,7 @@ function NewsList(props) {
           <div
             className="image"
             style={{
-              backgroundImage: `url(${props.image ? props.image : newsImage})`,
+              backgroundImage: `url(${props.image !== null && newsImage ? props.image : newsImage })`,
             }}
           >
             <img src={blankImage} alt={props.author} />

@@ -7,6 +7,7 @@ function News(props) {
   const [newsList, setNewsList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pagination, setpagination] = useState(0);
+  const [totalPage, setTotalPage] = useState();
   let defaultCountry = "in";
   let defaultCategory = "top";
   let defaultLanguage = "en";
@@ -14,6 +15,7 @@ function News(props) {
   let category = !props.category ? defaultCategory : props.category;
   let language = !props.language ? defaultLanguage : props.language;
   let pages = [
+    "",
     "16796230633e386362be4555179d2561f0444aebff",
     "1679618126827853b7408a2f3334c1e991fb3dcc66",
     "167960802492b2a0d4686885184513f5197e4cbe6b",
@@ -29,7 +31,7 @@ function News(props) {
 
   function handlePre() {
     if (pagination > 0) {
-      setpagination(pagination - 1)
+      setpagination(pagination - 1);
     }
   }
   // console.log(pages[pagination]);
@@ -48,9 +50,11 @@ function News(props) {
       .then((data) => {
         setLoading(false);
         setNewsList(data.results);
+        setTotalPage(data.nextPage);
       });
-  }, [category, country, language,pagination]);
+  }, [category, country, language, pagination]);
   // console.log(loading);
+  // console.log(totalPage);
   if (loading) {
     return (
       <section className="loading-section">
@@ -63,7 +67,7 @@ function News(props) {
       <div className="newsSec">
         {newsList.map(
           (news, id) =>
-            id < 9 && (
+            newsList.length - 1 > id && (
               <NewsList
                 key={id}
                 image={news.image_url}
@@ -75,10 +79,16 @@ function News(props) {
             )
         )}
       </div>
-      <div className="pagination">
-        <button onClick={handlePre} disabled={pagination < 1}>Previous</button>
-        <button onClick={handleNext}disabled={pagination > 3}>Next</button>
-      </div>
+      {totalPage !== null && (
+        <div className="pagination">
+          <button onClick={handlePre} disabled={pagination < 1}>
+            Previous
+          </button>
+          <button onClick={handleNext} disabled={pagination > 3}>
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 }
