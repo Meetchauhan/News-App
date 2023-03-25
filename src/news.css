@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 -20px;
-  
 }
 .newsInner {
   margin: 90px 0 0;
@@ -13,7 +12,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-img.loading{
+img.loading {
   width: 90%;
 }
 .pagination {
@@ -39,16 +38,22 @@ button:hover {
   background-color: #2d3351;
   color: white;
 }
-button:disabled{
+button:disabled {
   color: #8693bb;
   cursor: auto;
 }
-button[disabled]:hover{
+button[disabled]:hover {
   background-color: #e8e2cb;
   color: #8693bb;
 }
-@media(max-width:1440px){
-  img.loading{
+.no-news {
+  font-size: 30px;
+  text-align: center;
+  font-family: system-ui;
+  font-weight: 500;
+}
+@media (max-width: 1440px) {
+  img.loading {
     width: 70%;
   }
 }
@@ -59,7 +64,7 @@ button[disabled]:hover{
   .newsInner {
     margin-top: 60px;
   }
-  img.loading{
+  img.loading {
     width: 55%;
   }
 }
@@ -70,8 +75,11 @@ button[disabled]:hover{
   .newsInner {
     margin-top: 50px;
   }
-  img.loading{
+  img.loading {
     width: 42%;
+  }
+  .no-news{
+    font-size: 30px;
   }
 }
 @media (max-width: 767px) {
@@ -81,8 +89,11 @@ button[disabled]:hover{
   .newsSec {
     margin: 0 -10px;
   }
-  img.loading{
+  img.loading {
     width: 30%;
+  }
+  .no-news{
+    font-size: 22px;
   }
 }
 @media (max-width: 575px) {
