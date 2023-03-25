@@ -16,11 +16,11 @@ function News(props) {
   let language = !props.language ? defaultLanguage : props.language;
   let pages = [
     "",
-    "16796230633e386362be4555179d2561f0444aebff",
-    "1679618126827853b7408a2f3334c1e991fb3dcc66",
-    "167960802492b2a0d4686885184513f5197e4cbe6b",
-    "1679603940b42d2cbcec1d2671b007cb2f30af8161",
-    "1679602564817f47eea9da4c17b3251e7aba6c9977",
+    "1679714298a2de08ea2d2a498cc1ff60d1309b07d6",
+    "1679712205a3263e8c9b01bcbbad91688b2b9dfe89",
+    "1679701703d9ed5546503c99b3e250b8e98181c0ef",
+    "167968519052b563a5af47082a5ed35eee56b36e58",
+    "16796832181ba39f034b2806c54eb274c1fc1448ee",
   ];
   // console.log(country);
   function handleNext() {
@@ -42,8 +42,8 @@ function News(props) {
       // `https://newsapi.org/v2/top-headlines?country=in&apiKey=726f6bdc21db41a59facc9db4cec16ee`
       // `https://newsdata.io/api/1/news?apikey=pub_19355292bbd3ba50b2b1a59603f56332bac1a&country=in&language=en`
       // `https://newsdata.io/api/1/news?apikey=pub_1936819bd9461c6d43bb39bc52d9fc1c0b956&country=${country}&language=en&category=${category}`
-      `https://newsdata.io/api/1/news?apikey=pub_19403b0e568f259b089e0dc8b0e36018f6bcc&country=${country}&language=${language}&category=${category}&page=${pages[pagination]}`
-      // `https://newsdata.io/api/1/news?apikey=pub_19412b095a8b70b8b057353bd2cdf9b504666&country=${country}&language=${language}&category=${category}&page=${pages[pagination]}`
+      // `https://newsdata.io/api/1/news?apikey=pub_19403b0e568f259b089e0dc8b0e36018f6bcc&country=${country}&language=${language}&category=${category}&page=${pages[pagination]}`
+      `https://newsdata.io/api/1/news?apikey=pub_19412b095a8b70b8b057353bd2cdf9b504666&country=${country}&language=${language}&category=${category}&page=${pages[pagination]}`
       // `https://newsdata.io/api/1/news?apikey=pub_19415d72f2d551d88fea08420801d0114b838&country=${country}&language=${language}&category=${category}&page=${pages[pagination]}`
     )
       .then((response) => response.json())
@@ -67,7 +67,7 @@ function News(props) {
       <div className="newsSec">
         {newsList.map(
           (news, id) =>
-            newsList.length - 1 > id && (
+            // newsList.length - 1 > id && (
               <NewsList
                 key={id}
                 image={news.image_url}
@@ -76,7 +76,7 @@ function News(props) {
                 link={news.link}
                 source={news.source_id}
               />
-            )
+            // )
         )}
       </div>
       {totalPage !== null && (
