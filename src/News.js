@@ -46,15 +46,17 @@ function News(props) {
       // `https://newsdata.io/api/1/news?apikey=pub_1936819bd9461c6d43bb39bc52d9fc1c0b956&country=${country}&language=en&category=${category}`
       // `https://newsdata.io/api/1/news?apikey=pub_19403b0e568f259b089e0dc8b0e36018f6bcc&country=${country}&language=${language}&category=${category}&page=${pages[pagination]}`
       // `https://newsdata.io/api/1/news?apikey=pub_19412b095a8b70b8b057353bd2cdf9b504666&country=${country}&language=${language}&category=${category}&page=${pages[pagination]}`
-      `https://newsdata.io/api/1/news?apikey=pub_19415d72f2d551d88fea08420801d0114b838&country=${country}&language=${language}&category=${category}&page=${pages[pagination]}`
+      // `https://newsdata.io/api/1/news?apikey=pub_19415d72f2d551d88fea08420801d0114b838&country=${country}&language=${language}&category=${category}&page=${pages[pagination]}`
+      `https://newsdata.io/api/1/news?apikey=pub_195441b098370ffc73a32bccf92c8818fb698&country=${country}&language=${language}&category=${category}&page=${pages[pagination]}`
     )
       .then((response) => response.json())
       .then((data) => {
         setLoading(false);
         setNewsList(data.results);
         setTotalPage(data.nextPage);
-        setTotalResults(data.totalResults)
-      });
+        setTotalResults(data.totalResults);
+      })
+      .catch((error) => console.log(error));
   }, [category, country, language, pagination]);
 
   if (loading) {
@@ -67,9 +69,12 @@ function News(props) {
   return (
     <div className="newsInner">
       <div className={totalResults === 0 ? "error" : "newsSec"}>
-        {totalResults === 0 ? <div className="no-news">No News Found</div> : newsList.map(
-          (news, id) =>
-            // newsList.length - 1 > id && (
+        {totalResults === 0 ? (
+          <div className="no-news">No News Found</div>
+        ) : (
+          newsList.map(
+            (news, id) => (
+              // newsList.length - 1 > id && (
               <NewsList
                 key={id}
                 image={news.image_url}
@@ -78,7 +83,9 @@ function News(props) {
                 link={news.link}
                 source={news.source_id}
               />
+            )
             // )
+          )
         )}
       </div>
       {totalPage !== null && (
